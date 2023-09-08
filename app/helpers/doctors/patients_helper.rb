@@ -1,2 +1,0 @@
-module Doctors::PatientsHelper
-end
