@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: yuvraj
+  password: yuvi123
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: masteryuvi_development
+  port: 5432
+
+test:
+  <<: *default
+  database: masteryuvi_test
+  port: 5432
+
+production:
+  <<: *default
+  database: masteryuvi_production
+  port: 5432

@@ -1,0 +1,6 @@
+body {
+  background-image: url('image.jpg');
+  background-size: cover; /* This scales the image to cover the entire body */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed while scrolling */
+}
