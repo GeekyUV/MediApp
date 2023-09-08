@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   namespace :doctors do
-    get 'patients/registration_graph'
+    resources :patients, only: [:index]
+    get 'registration_graph', to: 'patients#registration_graph'
   end
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_for :users, controllers: { registrations: 'registrations' }
+  resources :patients
+  root 'pages#home'
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
+  end
 end
+
+
