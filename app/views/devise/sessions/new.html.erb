@@ -1,13 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Medical App</title>
+  <%= stylesheet_link_tag 'login_page' %>
+</head>
+<body>
+<h1>Welcome to Vita Chart! Your Medical App  &#x1F489;</h1>
+<p><em>"Sophisticated healthcare management solution, meticulously crafted to empower medical professionals with
+  efficient and secure access to patient records.<br>Optimizes healthcare workflows by centralizing, organizing, and
+  safeguarding patient"</em></p>
 <h2>Log in</h2>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password %><br/>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -24,3 +41,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</body>
+</html>
