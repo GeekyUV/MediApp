@@ -5,10 +5,15 @@
   <%= stylesheet_link_tag 'edit.css' %>
 </head>
 <body>
+<% if flash[:notice].present? %>
+  <div class="flash-notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="container">
   <div class="box">
     <h2>Edit Patient</h2>
-    <%= render 'form' %>
+    <%= render 'form', patient: @patient %>
     <%= link_to 'Back', patients_path, class: "button" %>
   </div>
 </div>

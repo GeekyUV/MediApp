@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :check_role, except: [:index, :show]
 
   def index
@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    @patient.user = current_user # Set the user for the patient
+    @patient.user = current_user
 
     if @patient.save
       flash[:notice] = 'Patient was successfully created.'

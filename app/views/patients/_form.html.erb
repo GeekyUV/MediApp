@@ -7,18 +7,6 @@
 <div class="form-container">
   <%= form_with(model: @patient, local: true) do |form| %>
 
-    <% if @patient.errors.any? %>
-      <div class="error-explanation">
-        <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
-
-        <ul>
-          <% @patient.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <div class="form-field">
       <%= form.label :name %>
       <%= form.text_field :name %>
@@ -41,6 +29,7 @@
 
     <div class="form-actions">
       <%= form.submit 'Save', class: "button" %>
+      <%= render 'errors' %>
     </div>
   <% end %>
 </div>

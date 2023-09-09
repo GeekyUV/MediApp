@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag 'new.css' %>
 </head>
 <body>
+<% if flash[:notice].present? %>
+  <div class="flash-notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="container">
   <div class="box">
     <h2>New Patient</h2>
