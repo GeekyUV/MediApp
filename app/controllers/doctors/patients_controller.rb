@@ -6,7 +6,7 @@ class Doctors::PatientsController < ApplicationController
     @registration_data = {}
 
     registration_data.each do |date, count|
-      formatted_date = Date.parse(date).strftime('%Y-%m-%d')
+      formatted_date = date.strftime('%Y-%m-%d')
       @registration_data[formatted_date] = count
     end
 
@@ -17,6 +17,5 @@ class Doctors::PatientsController < ApplicationController
     g.write(Rails.root.join('public', 'registration_graph.png'))
 
     @chart_image_path = '/registration_graph.png'
-
   end
 end
